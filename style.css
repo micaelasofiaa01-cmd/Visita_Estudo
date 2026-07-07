@@ -1,0 +1,340 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #f5f7fb 0%, #edf1f8 100%);
+    color: #1b263b;
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.4rem 2rem;
+    background: rgba(255, 255, 255, 0.74);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 10px 30px rgba(11, 38, 75, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    padding: 0.75rem 1.1rem;
+    border-radius: 999px;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    background: #2d7fff;
+    color: #fff;
+}
+
+.hero {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    min-height: calc(100vh - 88px);
+    padding: 2rem 1.5rem;
+    background: url('fotos/couce-6.jpg') center/cover no-repeat;
+}
+
+.hero h2 {
+    font-size: clamp(2.4rem, 4vw, 4.2rem);
+    max-width: 12ch;
+    margin: 0 auto 1rem;
+    line-height: 1.05;
+    color: #fff;
+}
+
+.hero p {
+    max-width: 42rem;
+    margin: 0 auto 2rem;
+    font-size: 1.05rem;
+    color: #fff;
+    line-height: 1.8;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.95rem 1.8rem;
+    border-radius: 999px;
+    background: #3458ff;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 18px 30px rgba(52, 88, 255, 0.22);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 34px rgba(52, 88, 255, 0.28);
+    background: #1b47e2;
+}
+
+@media (max-width: 720px) {
+    header {
+        padding: 1rem 1.25rem;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero {
+        min-height: calc(100vh - 96px);
+        padding-top: 3rem;
+    }
+
+    .hero h2 {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+.content {
+    width: min(100%, 1120px);
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+}
+
+.gallery-intro,
+.about-hero {
+    max-width: 52rem;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+.gallery-intro h2,
+.about-hero h2 {
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    margin-bottom: 0.75rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-card {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: #ffffffee;
+    box-shadow: 0 18px 40px rgba(11, 38, 75, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 26px 48px rgba(11, 38, 75, 0.14);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 1.5rem;
+    display: grid;
+    gap: 0.85rem;
+}
+
+.card-category {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #2d7fff;
+}
+
+.gallery-card h3 {
+    font-size: 1.25rem;
+    margin: 0;
+    color: #16204b;
+}
+
+.gallery-card p {
+    color: #475569;
+    line-height: 1.7;
+}
+
+.gallery-card .btn {
+    width: max-content;
+    padding: 0.8rem 1.4rem;
+    border-radius: 999px;
+    background: #3458ff;
+    color: #fff;
+    font-weight: 600;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.gallery-card .btn:hover,
+.gallery-card .btn:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 26px rgba(52, 88, 255, 0.22);
+    background: #1b47e2;
+}
+
+.more-photos {
+    display: none;
+}
+
+.more-photos:target,
+.more-photos.active {
+    display: grid;
+    position: fixed;
+    inset: 0;
+    padding: 2rem;
+    background: rgba(11, 38, 75, 0.64);
+    place-items: center;
+    z-index: 20;
+    overflow-y: auto;
+}
+
+.more-photos-panel {
+    width: min(100%, 1040px);
+    max-height: min(100vh, 88rem);
+    overflow: auto;
+    padding: 1.75rem 1.5rem 2rem;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: 0 24px 60px rgba(11, 38, 75, 0.2);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.panel-header h3 {
+    font-size: clamp(1.6rem, 2.5vw, 2rem);
+    margin: 0;
+    color: #16204b;
+}
+
+.close-link {
+    color: #3458ff;
+    font-weight: 700;
+}
+
+.more-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.more-photo-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 14px 30px rgba(11, 38, 75, 0.08);
+}
+
+.more-photo-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.info-card {
+    padding: 1.75rem;
+    border-radius: 1.25rem;
+    background: #ffffffee;
+    box-shadow: 0 18px 34px rgba(11, 38, 75, 0.08);
+}
+
+.info-card h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.info-card p {
+    line-height: 1.75;
+    color: #475569;
+}
+
+@media (max-width: 900px) {
+    .gallery-grid,
+    .info-cards {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 720px) {
+    .gallery-card img {
+        height: 220px;
+    }
+}
+
+@media (max-width: 640px) {
+    .content {
+        padding: 1.5rem 1rem 2.5rem;
+    }
+
+    .gallery-grid,
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-card img {
+        height: 200px;
+    }
+
+    .gallery-intro,
+    .about-hero {
+        margin-bottom: 1.5rem;
+    }
+}
